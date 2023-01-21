@@ -8,7 +8,7 @@ app.use(express.json());
 const m = (req, res, next) => {
   const age = 123;
   if (age === 123) {
-    req.age = 123;
+    req.body.age = 123;
     next();
   } else {
     throw new Error("Not 123");
@@ -18,8 +18,8 @@ const m = (req, res, next) => {
 app.use(m);
 
 app.get("/", (req, res) => {
-  const re = (req.name = "hesham");
-  res.status(200).json({ re });
+  req.body.name = "hesham";
+  res.status(200).json({ data: req.body });
 });
 
 const connect = async () => {
