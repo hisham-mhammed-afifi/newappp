@@ -18,8 +18,7 @@ const middleware = (req, res, next) => {
 app.use(middleware);
 
 app.get("/", (req, res) => {
-  req.body.name = "hesham";
-  res.status(200).json({ data: req.body });
+  res.send({ name: "hesham" });
 });
 
 const connect = async () => {
