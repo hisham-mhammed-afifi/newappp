@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-const m = (req, res, next) => {
+const middleware = (req, res, next) => {
   const age = 123;
   if (age === 123) {
     req.body.age = 123;
@@ -15,7 +15,7 @@ const m = (req, res, next) => {
   }
 };
 
-app.use(m);
+app.use(middleware);
 
 app.get("/", (req, res) => {
   req.body.name = "hesham";
